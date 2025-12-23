@@ -167,6 +167,17 @@ const OrderForm: React.FC<Props> = ({ onOrderSuccess, thumbUrl, googleSheetUrl }
                 />
               </div>
 
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Ghi chú thêm (không bắt buộc)</label>
+                <textarea 
+                  className="w-full px-6 py-4 rounded-2xl border-2 border-gray-100 focus:border-blue-500 focus:outline-none transition font-bold shadow-sm"
+                  value={formData.note}
+                  onChange={e => setFormData({...formData, note: e.target.value})}
+                  rows={2} 
+                  placeholder="Ví dụ: Giao vào giờ hành chính, gọi trước khi đến..." 
+                />
+              </div>
+
               <div className="p-6 bg-blue-50 rounded-[1.5rem] border-2 border-dashed border-blue-200 flex items-center gap-5">
                  <div className="text-3xl">🚚</div>
                  <div className="text-xs font-bold text-blue-900 leading-relaxed">

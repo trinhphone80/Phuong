@@ -7,7 +7,7 @@ import HealthAssistant from './components/HealthAssistant';
 import AdminDashboard from './components/AdminDashboard';
 import ProductGallery from './components/ProductGallery';
 import { Order, AppConfig } from './types';
-import { IMAGES, CONTACT } from './constants';
+import { IMAGES, CONTACT, GOOGLE_SHEET_URL } from './constants';
 
 const App: React.FC = () => {
   const [orders, setOrders] = useState<Order[]>(() => {
@@ -17,13 +17,23 @@ const App: React.FC = () => {
 
   const [config, setConfig] = useState<AppConfig>(() => {
     const saved = localStorage.getItem('aicare_config');
-    return saved ? JSON.parse(saved) : {
+    const defaultConfig = {
       heroImageUrl: IMAGES.hero,
       specsImageUrl: IMAGES.specs,
       thumbImageUrl: IMAGES.thumb,
       galleryImageUrls: IMAGES.gallery,
-      googleSheetUrl: '', // Mặc định trống
+      googleSheetUrl: GOOGLE_SHEET_URL,
     };
+    
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      // Đảm bảo nếu googleSheetUrl cũ bị trống thì lấy link gắn cứng mới
+      if (!parsed.googleSheetUrl) {
+        parsed.googleSheetUrl = GOOGLE_SHEET_URL;
+      }
+      return parsed;
+    }
+    return defaultConfig;
   });
   
   const [isAdminOpen, setIsAdminOpen] = useState(false);

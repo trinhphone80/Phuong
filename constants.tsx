@@ -13,6 +13,8 @@ export const CONTACT = {
   showroom: '12 Đông Hồ, Phường Tân Hòa, TP.HCM'
 };
 
+export const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwCCdMUHhw5WnJ_LZJxNnOOYSZ0uqpZum7gTxVb4irandr_i6KOUgvramtNURixhILhIQ/exec';
+
 export const IMAGES = {
   logo: 'https://ducphuongmedical.com/yuwell/logo.png',
   hero: 'https://ducphuongmedical.com/wp-content/uploads/2025/12/z7339668677279_cfb121a4c7f57c6404c15bff46ea7698.jpg',
