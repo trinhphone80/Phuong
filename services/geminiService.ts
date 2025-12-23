@@ -2,7 +2,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 // Khởi tạo Gemini API
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 
 /**
  * Trợ lý tư vấn sức khỏe Đức Phương Medical.
